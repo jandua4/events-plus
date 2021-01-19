@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EventsPlus.Models
 {
-    public class Attendees
+    public class Attendee
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -13,7 +13,7 @@ namespace EventsPlus.Models
         public string Address { get; set; }
         public string Email { get; set; }
 
-        public ICollection<EventAttendees> eventAttendees { get; set; }
+        public ICollection<EventAttendees> EventAttendees { get; set; }
 
     }
 }

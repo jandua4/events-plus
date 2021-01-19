@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EventsPlus.Models
 {
-    public class Events
+    public class Event
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -16,7 +16,7 @@ namespace EventsPlus.Models
         public int SlotsRemaining { get; set; }
         public int SlotsTotal { get; set; }
 
-        public ICollection<EventAttendees> eventAttendees { get; set; }
-        public ICollection<ManagerEvents> managerEvents { get; set; }
+        public ICollection<EventAttendees> EventAttendees { get; set; }
+        public ICollection<ManagerEvents> ManagerEvents { get; set; }
     }
 }

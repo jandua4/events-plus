@@ -11,7 +11,7 @@ namespace EventsPlus.Models
         public int ManagerID { get; set; }
         public int EventID { get; set; }
 
-        public Events Events { get; set; }
+        public Event Events { get; set; }
         public Manager Manager { get; set; }
     }
 }

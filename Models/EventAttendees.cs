@@ -11,7 +11,7 @@ namespace EventsPlus.Models
         public int EventID { get; set; }
         public int AttendeeID { get; set; }
 
-        public Attendees Attendees { get; set; }
-        public Events Events { get; set; }
+        public Attendee Attendees { get; set; }
+        public Event Events { get; set; }
     }
 }
