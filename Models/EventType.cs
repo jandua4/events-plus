@@ -7,7 +7,7 @@ namespace EventsPlus.Models
 {
     public class EventType
     {
-        public int ID { get; set; }
+        public int EventTypeID { get; set; }
         public string Type { get; set; }
     }
 }
