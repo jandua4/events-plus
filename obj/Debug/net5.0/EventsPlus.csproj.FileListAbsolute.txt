@@ -166,3 +166,8 @@ C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Ap
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\EventsPlus.Views.pdb
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\EventsPlus.csproj.CopyComplete
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\EventsPlus.genruntimeconfig.cache
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\Razor\Views\Events\Create.cshtml.g.cs
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\Razor\Views\Events\Delete.cshtml.g.cs
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\Razor\Views\Events\Details.cshtml.g.cs
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\Razor\Views\Events\Edit.cshtml.g.cs
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\Razor\Views\Events\Index.cshtml.g.cs
