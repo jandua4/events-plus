@@ -17,7 +17,7 @@ namespace EventsPlus.Models
         public int SlotsRemaining { get; set; }
         public int SlotsTotal { get; set; }
 
-        [ForeignKey("Manager")]
-        public int ManagerID { get; set; }
+        [ForeignKey("EventType")]
+        public int EventTypeID { get; set; }
     }
 }

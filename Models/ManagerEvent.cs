@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace EventsPlus.Models
 {
-    public class Manager
+    public class ManagerEvent
     {
+        [ForeignKey("Manager")]
         public int ManagerID { get; set; }
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
+
+        [ForeignKey("Event")]
+        public int EventID { get; set; }
     }
 }

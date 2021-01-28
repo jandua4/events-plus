@@ -13,9 +13,5 @@ namespace EventsPlus.Models
         public string Phone { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }
-
-        [ForeignKey("Event")]
-        public int EventID { get; set; }
-
     }
 }
