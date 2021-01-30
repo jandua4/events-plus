@@ -9,7 +9,7 @@ namespace EventsPlus.Data
 {
     public class EventsPlusContext : DbContext
     {
-        public EventsPlusContext(DbContextOptions<EventsPlusContext> options) : base(options)
+        public EventsPlusContext (DbContextOptions<EventsPlusContext> options) : base(options)
         { 
         }
 
@@ -17,13 +17,17 @@ namespace EventsPlus.Data
         public DbSet<EventType> EventType { get; set; }
         public DbSet<Attendee> Attendees { get; set; }
         public DbSet<Manager> Managers { get; set; }
+        public DbSet<EventAttendee> EventAttendees { get; set; }
+        public DbSet<ManagerEvent> ManagerEvents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Event>().ToTable("Events");
-            modelBuilder.Entity<EventType>().ToTable("Event Type");
+            modelBuilder.Entity<EventType>().ToTable("EventTypes");
             modelBuilder.Entity<Attendee>().ToTable("Attendees");
             modelBuilder.Entity<Manager>().ToTable("Managers");
+            modelBuilder.Entity<EventAttendee>().ToTable("EventAttendees").HasNoKey(); // Bridge Entity
+            modelBuilder.Entity<ManagerEvent>().ToTable("ManagerEvents").HasNoKey(); // Bridge Entity
         }
     }
 }
