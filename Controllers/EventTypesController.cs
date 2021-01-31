@@ -10,22 +10,22 @@ using EventsPlus.Models;
 
 namespace EventsPlus.Controllers
 {
-    public class EventsController : Controller
+    public class EventTypesController : Controller
     {
         private readonly EventsPlusContext _context;
 
-        public EventsController(EventsPlusContext context)
+        public EventTypesController(EventsPlusContext context)
         {
             _context = context;
         }
 
-        // GET: Events
+        // GET: EventTypes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Events.ToListAsync());
+            return View(await _context.EventType.ToListAsync());
         }
 
-        // GET: Events/Details/5
+        // GET: EventTypes/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace EventsPlus.Controllers
                 return NotFound();
             }
 
-            var @event = await _context.Events
-                .FirstOrDefaultAsync(m => m.EventID == id);
-            if (@event == null)
+            var eventType = await _context.EventType
+                .FirstOrDefaultAsync(m => m.EventTypeID == id);
+            if (eventType == null)
             {
                 return NotFound();
             }
 
-            return View(@event);
+            return View(eventType);
         }
 
-        // GET: Events/Create
+        // GET: EventTypes/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Events/Create
+        // POST: EventTypes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EventID,Name,DateTime,Location,Duration,Description,SlotsRemaining,SlotsTotal,EventType")] Event @event)
+        public async Task<IActionResult> Create([Bind("EventTypeID,Type")] EventType eventType)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(@event);
+                _context.Add(eventType);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(@event);
+            return View(eventType);
         }
 
-        // GET: Events/Edit/5
+        // GET: EventTypes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace EventsPlus.Controllers
                 return NotFound();
             }
 
-            var @event = await _context.Events.FindAsync(id);
-            if (@event == null)
+            var eventType = await _context.EventType.FindAsync(id);
+            if (eventType == null)
             {
                 return NotFound();
             }
-            return View(@event);
+            return View(eventType);
         }
 
-        // POST: Events/Edit/5
+        // POST: EventTypes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EventID,Name,DateTime,Location,Duration,Description,SlotsRemaining,SlotsTotal,EventType")] Event @event)
+        public async Task<IActionResult> Edit(int id, [Bind("EventTypeID,Type")] EventType eventType)
         {
-            if (id != @event.EventID)
+            if (id != eventType.EventTypeID)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace EventsPlus.Controllers
             {
                 try
                 {
-                    _context.Update(@event);
+                    _context.Update(eventType);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EventExists(@event.EventID))
+                    if (!EventTypeExists(eventType.EventTypeID))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace EventsPlus.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(@event);
+            return View(eventType);
         }
 
-        // GET: Events/Delete/5
+        // GET: EventTypes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace EventsPlus.Controllers
                 return NotFound();
             }
 
-            var @event = await _context.Events
-                .FirstOrDefaultAsync(m => m.EventID == id);
-            if (@event == null)
+            var eventType = await _context.EventType
+                .FirstOrDefaultAsync(m => m.EventTypeID == id);
+            if (eventType == null)
             {
                 return NotFound();
             }
 
-            return View(@event);
+            return View(eventType);
         }
 
-        // POST: Events/Delete/5
+        // POST: EventTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var @event = await _context.Events.FindAsync(id);
-            _context.Events.Remove(@event);
+            var eventType = await _context.EventType.FindAsync(id);
+            _context.EventType.Remove(eventType);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EventExists(int id)
+        private bool EventTypeExists(int id)
         {
-            return _context.Events.Any(e => e.EventID == id);
+            return _context.EventType.Any(e => e.EventTypeID == id);
         }
     }
 }

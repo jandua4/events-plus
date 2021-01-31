@@ -20,9 +20,9 @@
                 <div id="navArea" class="nav navbar-collapse flex-column collapse">
                     <p id="menuItem" class="nav-link event-link">Events</p>
                     <ul id="eventMenu" class="bg-light">
-                        <li class="nav-sub-link text-dark"><a href="">Add Event</a></li>
+                        <li class="nav-sub-link text-dark"><a asp-area="" asp-controller="Events" asp-action="Create">Add Event</a></li>
                         <li class="nav-sub-link text-dark"><a asp-area="" asp-controller="Events" asp-action="Index">Manage Events</a></li>
-                        <li class="nav-sub-link text-dark"><a href="">Manage Event Types</a></li>
+                        <li class="nav-sub-link text-dark"><a asp-area="" asp-controller="EventTypes" asp-action="Index">Manage Event Types</a></li>
                     </ul>
                     <p id="menuItem" class="nav-link manager-link">Managers</p>
                     <ul id="managerMenu" class="bg-light">
