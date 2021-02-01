@@ -3,14 +3,16 @@ using EventsPlus.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EventsPlus.Migrations
 {
     [DbContext(typeof(EventsPlusContext))]
-    partial class EventsPlusContextModelSnapshot : ModelSnapshot
+    [Migration("20210131220830_EventTypes")]
+    partial class EventTypes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -55,8 +57,8 @@ namespace EventsPlus.Migrations
                     b.Property<string>("Duration")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EventTypeID")
-                        .HasColumnType("int");
+                    b.Property<string>("EventType")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");

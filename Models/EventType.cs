@@ -9,5 +9,9 @@ namespace EventsPlus.Models
     {
         public int EventTypeID { get; set; }
         public string Type { get; set; }
+
+        // Indicates a One-To-Many Relationship
+        // Can hold many entities
+        public ICollection<Event> Events { get; set; }
     }
 }

@@ -17,7 +17,11 @@ namespace EventsPlus.Models
         public int SlotsRemaining { get; set; }
         public int SlotsTotal { get; set; }
 
-        // Generate list from table EventTypes List
-        public string EventType { get; set; }
+        /* Set up relationship with other entities
+        ** Self-instantiated objects have one entity
+        ** ICollection can hold multiple entities */
+        public EventType EventType { get; set; }
+        public Manager Manager { get; set; }
+        public ICollection<Attendee> Attendees { get; set; }
     }
 }

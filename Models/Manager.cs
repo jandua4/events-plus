@@ -12,5 +12,8 @@ namespace EventsPlus.Models
         public string Name { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+
+        // One event per manager
+        public Event Event { get; set; }
     }
 }
