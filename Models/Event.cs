@@ -16,6 +16,7 @@ namespace EventsPlus.Models
         public string Description { get; set; }
         public int SlotsRemaining { get; set; }
         public int SlotsTotal { get; set; }
+        public int EventTypeID { get; set; }
 
         /* Set up relationship with other entities
         ** Self-instantiated objects have one entity
