@@ -22,7 +22,7 @@ namespace EventsPlus.Controllers
         // GET: EventTypes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.EventType.ToListAsync());
+            return View(await _context.EventTypes.ToListAsync());
         }
 
         // GET: EventTypes/Details/5
@@ -33,7 +33,7 @@ namespace EventsPlus.Controllers
                 return NotFound();
             }
 
-            var eventType = await _context.EventType
+            var eventType = await _context.EventTypes
                 .FirstOrDefaultAsync(m => m.EventTypeID == id);
             if (eventType == null)
             {
@@ -73,7 +73,7 @@ namespace EventsPlus.Controllers
                 return NotFound();
             }
 
-            var eventType = await _context.EventType.FindAsync(id);
+            var eventType = await _context.EventTypes.FindAsync(id);
             if (eventType == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace EventsPlus.Controllers
                 return NotFound();
             }
 
-            var eventType = await _context.EventType
+            var eventType = await _context.EventTypes
                 .FirstOrDefaultAsync(m => m.EventTypeID == id);
             if (eventType == null)
             {
@@ -139,15 +139,15 @@ namespace EventsPlus.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var eventType = await _context.EventType.FindAsync(id);
-            _context.EventType.Remove(eventType);
+            var eventType = await _context.EventTypes.FindAsync(id);
+            _context.EventTypes.Remove(eventType);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool EventTypeExists(int id)
         {
-            return _context.EventType.Any(e => e.EventTypeID == id);
+            return _context.EventTypes.Any(e => e.EventTypeID == id);
         }
     }
 }

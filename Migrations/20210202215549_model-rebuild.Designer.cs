@@ -4,14 +4,16 @@ using EventsPlus.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EventsPlus.Migrations
 {
     [DbContext(typeof(EventsPlusContext))]
-    partial class EventsPlusContextModelSnapshot : ModelSnapshot
+    [Migration("20210202215549_model-rebuild")]
+    partial class modelrebuild
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

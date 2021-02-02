@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,15 +11,46 @@ namespace EventsPlus.Models
     public class Event
     {
         public int EventID { get; set; }
-        public string Name { get; set; }
-        public string DateTime { get; set; }
-        public string Location { get; set; }
-        public string Duration { get; set; }
-        public string Description { get; set; }
-        public int SlotsRemaining { get; set; }
-        public int SlotsTotal { get; set; }
-        public int EventTypeID { get; set; }
 
+        [Required]
+        [Display(Name = "Event Name")]
+        [StringLength(50, ErrorMessage = "Max 50 Characters")]
+        public string Name { get; set; }
+
+        [Required]
+        [Display(Name = "Date/Time")]
+        [StringLength(20, ErrorMessage = "Max 20 Characters")]
+        public DateTime DateTime { get; set; }
+
+        [Required]
+        [Display(Name = "Name")]
+        [StringLength(255, ErrorMessage = "Max 255 Characters")]
+        public string Location { get; set; }
+
+        [Required]
+        [Display(Name = "Duration")]
+        [StringLength(15, ErrorMessage = "Max 15 Characters")]
+        public string Duration { get; set; }
+
+        [Required]
+        [Display(Name = "Description")]
+        [StringLength(255, ErrorMessage = "Max 255 Characters")]
+        public string Description { get; set; }
+
+        [Required]
+        [Display(Name = "Slots Remaining")]
+        [StringLength(10, ErrorMessage = "Max 10 Characters")]
+        public int SlotsRemaining { get; set; }
+
+        [Required]
+        [Display(Name = "Name")]
+        [StringLength(10, ErrorMessage = "Max 10 Characters")]
+        public int SlotsTotal { get; set; }
+
+        public int? EventTypeID { get; set; }
+        public int? ManagerID { get; set; }
+
+        // Navigation
         /* Set up relationship with other entities
         ** Self-instantiated objects have one entity
         ** ICollection can hold multiple entities */
