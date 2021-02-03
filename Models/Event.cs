@@ -18,12 +18,13 @@ namespace EventsPlus.Models
         public string Name { get; set; }
 
         [Required]
+        [DataType(DataType.DateTime)]
         [Display(Name = "Date/Time")]
         [StringLength(20, ErrorMessage = "Max 20 Characters")]
         public DateTime DateTime { get; set; }
 
         [Required]
-        [Display(Name = "Name")]
+        [Display(Name = "Location")]
         [StringLength(255, ErrorMessage = "Max 255 Characters")]
         public string Location { get; set; }
 
@@ -43,11 +44,14 @@ namespace EventsPlus.Models
         public int SlotsRemaining { get; set; }
 
         [Required]
-        [Display(Name = "Name")]
+        [Display(Name = "Slots Total")]
         [StringLength(10, ErrorMessage = "Max 10 Characters")]
         public int SlotsTotal { get; set; }
 
+        [Display(Name = "Event Type")]
         public int? EventTypeID { get; set; }
+
+        [Display(Name = "Event Manager (Not Required)")]
         public int? ManagerID { get; set; }
 
         // Navigation

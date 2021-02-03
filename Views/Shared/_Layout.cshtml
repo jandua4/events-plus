@@ -26,12 +26,12 @@
                     </ul>
                     <p id="menuItem" class="nav-link manager-link">Managers</p>
                     <ul id="managerMenu" class="bg-light">
-                        <li class="nav-sub-link text-dark"><a href="">Add Manager</a></li>
+                        <li class="nav-sub-link text-dark"><a asp-area="" asp-controller="Managers" asp-action="Create">Add Manager</a></li>
                         <li class="nav-sub-link text-dark"><a asp-area="" asp-controller="Managers" asp-action="Index">Manage Managers</a></li>
                     </ul>
                     <p id="menuItem" class="nav-link attendee-link">Attendees</p>
                     <ul id="attendeeMenu" class="bg-light">
-                        <li class="nav-sub-link text-dark"><a href="">Register to Event</a></li>
+                        <li class="nav-sub-link text-dark"><a asp-area="" asp-controller="Attendees" asp-action="Create">Register to Event</a></li>
                         <li class="nav-sub-link text-dark"><a asp-area="" asp-controller="Attendees" asp-action="Index">Manage Attendees</a></li>
                     </ul>
                     <a class="nav-link text-white" id="menuItem" asp-area="" asp-controller="Schedule" asp-action="Index">View Schedule</a>
