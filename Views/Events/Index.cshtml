@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateTime)
+                @Html.DisplayNameFor(model => model.StartTime)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Location)
@@ -28,13 +28,7 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SlotsRemaining)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SlotsTotal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ManagerID)
+                @Html.DisplayNameFor(model => model.Manager)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.EventType)
@@ -49,7 +43,7 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateTime)
+                @Html.DisplayFor(modelItem => item.StartTime)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Location)
@@ -61,13 +55,7 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SlotsRemaining)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SlotsTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ManagerID)
+                @Html.DisplayFor(modelItem => item.Manager.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EventType.Type)

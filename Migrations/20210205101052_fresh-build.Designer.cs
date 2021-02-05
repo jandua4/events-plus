@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventsPlus.Migrations
 {
     [DbContext(typeof(EventsPlusContext))]
-    [Migration("20210202215549_model-rebuild")]
-    partial class modelrebuild
+    [Migration("20210205101052_fresh-build")]
+    partial class freshbuild
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,10 +60,6 @@ namespace EventsPlus.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<DateTime>("DateTime")
-                        .HasMaxLength(20)
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -97,6 +93,9 @@ namespace EventsPlus.Migrations
                     b.Property<int>("SlotsTotal")
                         .HasMaxLength(10)
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("EventID");
 

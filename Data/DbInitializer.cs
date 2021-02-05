@@ -21,7 +21,7 @@ namespace EventsPlus.Data
             // Events
             var events = new Event[]
             {
-                new Event{EventID=1, Name="Aman's 21st Birthday", DateTime=DateTime.Parse("22-Aug-2021 14:00"), Location="Centre AT7, 12 Bell Green Rd, Coventry CV6 7GP", Duration="4 Hours", Description="Celebrating Aman's 21st Birthday", SlotsRemaining=39, SlotsTotal=40 }
+                new Event{EventID=1, Name="Aman's 21st Birthday", StartTime=DateTime.Parse("22-Aug-2021 14:00"), Location="Centre AT7, 12 Bell Green Rd, Coventry CV6 7GP", Duration="4 Hours", Description="Celebrating Aman's 21st Birthday" }
             };
 
             foreach (Event e in events)

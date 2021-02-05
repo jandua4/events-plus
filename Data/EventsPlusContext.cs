@@ -37,7 +37,7 @@ namespace EventsPlus.Data
                 .HasOne(m => m.Manager)
                 .WithOne(e => e.Event)
                 .HasForeignKey<Event>(m => m.ManagerID)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Event>()
                 .HasOne(t => t.EventType)

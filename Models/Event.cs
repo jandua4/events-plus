@@ -18,10 +18,9 @@ namespace EventsPlus.Models
         public string Name { get; set; }
 
         [Required]
-        [DataType(DataType.DateTime)]
-        [Display(Name = "Date/Time")]
-        [StringLength(20, ErrorMessage = "Max 20 Characters")]
-        public DateTime DateTime { get; set; }
+        [DataType("DateTime")]
+        [Display(Name = "Start Time")]
+        public DateTime StartTime { get; set; }
 
         [Required]
         [Display(Name = "Location")]
@@ -38,20 +37,10 @@ namespace EventsPlus.Models
         [StringLength(255, ErrorMessage = "Max 255 Characters")]
         public string Description { get; set; }
 
-        [Required]
-        [Display(Name = "Slots Remaining")]
-        [StringLength(10, ErrorMessage = "Max 10 Characters")]
-        public int SlotsRemaining { get; set; }
-
-        [Required]
-        [Display(Name = "Slots Total")]
-        [StringLength(10, ErrorMessage = "Max 10 Characters")]
-        public int SlotsTotal { get; set; }
-
-        [Display(Name = "Event Type")]
+        [Display(Name = "Event Type (Not Required): Default is 'Unassigned'.")]
         public int? EventTypeID { get; set; }
 
-        [Display(Name = "Event Manager (Not Required)")]
+        [Display(Name = "Event Manager (Not Required): Default is 'Unassigned'.")]
         public int? ManagerID { get; set; }
 
         // Navigation
