@@ -61,11 +61,20 @@ namespace EventsPlus.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AttendeeID,Name,Phone,Email,EventID")] Attendee attendee)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(attendee);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _context.Add(attendee);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            catch (DbUpdateException)
+            {
+                ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persists " +
+                    "see your system administrator.");
             }
             ViewData["EventID"] = new SelectList(_context.Events, "EventID", "Name", attendee.EventID);
             return View(attendee);

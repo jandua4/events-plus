@@ -56,11 +56,20 @@ namespace EventsPlus.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("EventTypeID,Type")] EventType eventType)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(eventType);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    _context.Add(eventType);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            catch (DbUpdateException)
+            {
+                ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persists " +
+                    "see your system administrator.");
             }
             return View(eventType);
         }
