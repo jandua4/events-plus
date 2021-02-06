@@ -37,7 +37,7 @@ namespace EventsPlus.Models
         [StringLength(255, ErrorMessage = "Max 255 Characters")]
         public string Description { get; set; }
 
-        [Display(Name = "Event Type (Not Required): Default is 'Unassigned'.")]
+        [Display(Name = "Event Type (Not Required): Default is 'Unspecified'.")]
         public int? EventTypeID { get; set; }
 
         [Display(Name = "Event Manager (Not Required): Default is 'Unassigned'.")]

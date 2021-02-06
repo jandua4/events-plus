@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventsPlus.Migrations
 {
     [DbContext(typeof(EventsPlusContext))]
-    [Migration("20210205200641_tweak3")]
+    [Migration("20210205234236_tweak3")]
     partial class tweak3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -93,6 +93,8 @@ namespace EventsPlus.Migrations
 
                     b.HasIndex("EventTypeID");
 
+                    b.HasIndex("ManagerID");
+
                     b.ToTable("Events");
                 });
 
@@ -125,9 +127,6 @@ namespace EventsPlus.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
-                    b.Property<int>("EventID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -139,9 +138,6 @@ namespace EventsPlus.Migrations
                         .HasColumnType("nvarchar(15)");
 
                     b.HasKey("ManagerID");
-
-                    b.HasIndex("EventID")
-                        .IsUnique();
 
                     b.ToTable("Managers");
                 });
@@ -164,28 +160,27 @@ namespace EventsPlus.Migrations
                         .HasForeignKey("EventTypeID")
                         .OnDelete(DeleteBehavior.SetNull);
 
+                    b.HasOne("EventsPlus.Models.Manager", "Manager")
+                        .WithMany("Events")
+                        .HasForeignKey("ManagerID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.Navigation("EventType");
-                });
 
-            modelBuilder.Entity("EventsPlus.Models.Manager", b =>
-                {
-                    b.HasOne("EventsPlus.Models.Event", "Event")
-                        .WithOne("Manager")
-                        .HasForeignKey("EventsPlus.Models.Manager", "EventID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Event");
+                    b.Navigation("Manager");
                 });
 
             modelBuilder.Entity("EventsPlus.Models.Event", b =>
                 {
                     b.Navigation("Attendees");
-
-                    b.Navigation("Manager");
                 });
 
             modelBuilder.Entity("EventsPlus.Models.EventType", b =>
+                {
+                    b.Navigation("Events");
+                });
+
+            modelBuilder.Entity("EventsPlus.Models.Manager", b =>
                 {
                     b.Navigation("Events");
                 });

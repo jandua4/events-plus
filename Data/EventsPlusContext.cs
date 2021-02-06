@@ -26,19 +26,19 @@ namespace EventsPlus.Data
             modelBuilder.Entity<Event>()
                 .ToTable("Events")
                 .HasKey(e => e.EventID);
-
+            //Set Attendee relationship and constraint
             modelBuilder.Entity<Event>()
                 .HasMany(a => a.Attendees)
                 .WithOne(e => e.Event)
                 .HasForeignKey(a => a.AttendeeID)
                 .OnDelete(DeleteBehavior.Cascade);
-
+            //Set Manager relationship and constraint
             modelBuilder.Entity<Event>()
                 .HasOne(m => m.Manager)
-                .WithOne(e => e.Event)
-                .HasForeignKey<Event>(m => m.ManagerID)
+                .WithMany(e => e.Events)
+                .HasForeignKey(m => m.ManagerID)
                 .OnDelete(DeleteBehavior.NoAction);
-
+            //Set Event Type relationship and constraint
             modelBuilder.Entity<Event>()
                 .HasOne(t => t.EventType)
                 .WithMany(e => e.Events)
@@ -50,7 +50,7 @@ namespace EventsPlus.Data
             modelBuilder.Entity<EventType>()
                 .ToTable("EventTypes")
                 .HasKey(t => t.EventTypeID);
-
+            // Set constraint
             modelBuilder.Entity<EventType>()
                 .HasMany(t => t.Events)
                 .WithOne(t => t.EventType)
@@ -61,7 +61,7 @@ namespace EventsPlus.Data
             modelBuilder.Entity<Attendee>()
                 .ToTable("Attendees")
                 .HasKey(a => a.AttendeeID);
-
+            // Set up relationship and constraints
             modelBuilder.Entity<Attendee>()
                 .HasOne(e => e.Event)
                 .WithMany(a => a.Attendees)
@@ -73,11 +73,10 @@ namespace EventsPlus.Data
             modelBuilder.Entity<Manager>()
                 .ToTable("Managers")
                 .HasKey(m => m.ManagerID);
-
+            // Set up constraints
             modelBuilder.Entity<Manager>()
-                .HasOne(e => e.Event)
+                .HasMany(e => e.Events)
                 .WithOne(m => m.Manager)
-                .HasForeignKey<Manager>(e => e.EventID)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

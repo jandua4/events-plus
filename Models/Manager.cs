@@ -27,10 +27,8 @@ namespace EventsPlus.Models
         [StringLength(60, ErrorMessage = "Max 60 Characters")]
         public string Email { get; set; }
 
-        public int EventID { get; set; }
-
         // Navigation
-        // One manager for one event
-        public Event Event { get; set; }
+        // Manager can be assigned to events
+        public ICollection<Event> Events { get; set; }
     }
 }
