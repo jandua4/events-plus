@@ -27,6 +27,7 @@ namespace EventsPlus.Models
         [StringLength(60, ErrorMessage = "Max 60 Characters")]
         public string Email { get; set; }
         
+        [Display(Name = "Event")]
         public int EventID { get; set; }
 
         // Navigation

@@ -39,6 +39,7 @@ namespace EventsPlus.Controllers
             var @event = await _context.Events
                 .Include(a => a.EventType)
                 .Include(a => a.Manager)
+                .Include(a => a.Attendees)
                 .FirstOrDefaultAsync(m => m.EventID == id);
             if (@event == null)
             {
