@@ -36,6 +36,7 @@ namespace EventsPlus.Controllers
                 return NotFound();
             }
 
+            // Get data of all related entities
             var @event = await _context.Events
                 .Include(a => a.EventType)
                 .Include(a => a.Manager)
@@ -52,6 +53,7 @@ namespace EventsPlus.Controllers
         // GET: Events/Create
         public IActionResult Create()
         {
+            // Get manager and event type IDs to be used in dropdown list
             ViewData["EventTypeID"] = new SelectList(_context.EventTypes, "EventTypeID", "Type");
             ViewData["ManagerID"] = new SelectList(_context.Managers, "ManagerID", "Name");
             return View();
@@ -175,5 +177,18 @@ namespace EventsPlus.Controllers
         {
             return _context.Events.Any(e => e.EventID == id);
         }
+
+        // Method for returning events in order of StartTime - should show up in ascending order
+        public async Task<IActionResult> Schedule()
+        {
+            // Select event from each item in Events
+            var events = from e in _context.Events
+                         .Include(a => a.EventType)
+                         select e;
+            events = events.OrderBy(e => e.StartTime);
+
+            return View(await events.AsNoTracking().ToListAsync());
+        }
+
     }
 }

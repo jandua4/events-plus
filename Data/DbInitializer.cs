@@ -21,7 +21,7 @@ namespace EventsPlus.Data
             // Events
             var events = new Event[]
             {
-                new Event{EventID=1, Name="Aman's 21st Birthday", StartTime=DateTime.Parse("22-Aug-2021 14:00"), Location="Centre AT7, 12 Bell Green Rd, Coventry CV6 7GP", Duration="4 Hours", Description="Celebrating Aman's 21st Birthday" }
+                new Event{EventID=1, Name="Aman's 21st Birthday", StartTime=DateTime.Parse("22-Aug-2021 14:00"), Location="Centre AT7, 12 Bell Green Rd, Coventry CV6 7GP", Duration="4 Hours", Description="Celebrating Aman's 21st Birthday", EventTypeID=1, ManagerID=1 }
             };
 
             foreach (Event e in events)
@@ -60,7 +60,7 @@ namespace EventsPlus.Data
             // Attendees
             var attendees = new Attendee[]
             {
-                new Attendee{AttendeeID=1, Name="Bob", Phone="04329402", Email="hello@me.com" }
+                new Attendee{AttendeeID=1, Name="Bob", Phone="04329402", Email="hello@me.com", EventID=1 }
             };
 
             foreach (Attendee a in attendees)
