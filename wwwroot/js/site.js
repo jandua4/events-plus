@@ -4,6 +4,8 @@
 // Write your JavaScript code.
 
 $(document).ready(function () {
+    // On load, empty the text fields
+    $('.register-input').val('');
 
     // Navigation toggle for each item in the sidebar with a dropdown list
     $('.event-link').click(function () {

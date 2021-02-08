@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EventsPlus.Data;
 using EventsPlus.Models;
+using EventsPlus.ViewModels;
 
 namespace EventsPlus.Controllers
 {
@@ -189,6 +190,44 @@ namespace EventsPlus.Controllers
 
             return View(await events.AsNoTracking().ToListAsync());
         }
+
+
+
+        // For Attendees to register
+        public async Task<IActionResult> Register(int id)
+        {
+            var @event = await _context.Attendees
+                .Include(a => a.Event)
+                .ThenInclude(a => a.EventType)
+                .FirstOrDefaultAsync(a => a.EventID == id);
+
+            return View(@event);
+        }
+
+        // Registration POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register([Bind("AttendeeID,Name,Phone,Email,EventID")] Attendee attendee)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _context.Add(attendee);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Schedule));
+                }
+            }
+            catch (DbUpdateException)
+            {
+                ModelState.AddModelError("", "Unable to save changes. " +
+                    "Try again, and if the problem persists " +
+                    "see your system administrator.");
+            }
+            return View(attendee);
+        }
+
+
 
     }
 }
