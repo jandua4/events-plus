@@ -39,7 +39,7 @@ namespace EventsPlus.Tests.Controllers
         }
 
         [Fact]
-        public async Task Index_ReturnsAViewResult_WithAListOfClubs()
+        public async Task Index_ReturnsAViewResult_WithAListOfEventTypes()
         {
             //Arrange
             var dbContext = await GetDatabaseContext();
@@ -68,8 +68,8 @@ namespace EventsPlus.Tests.Controllers
             var viewResult = Assert.IsType<ViewResult>(result);
             var model = Assert.IsType<EventType>(
                 viewResult.ViewData.Model);
-            Assert.Equal("Sport", model.Type);
             Assert.Equal(11, model.EventTypeID);
+            Assert.Equal("Sport", model.Type);
         }
 
         [Fact]
