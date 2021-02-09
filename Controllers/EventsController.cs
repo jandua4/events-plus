@@ -255,9 +255,9 @@ namespace EventsPlus.Controllers
         // For Attendees to register
         public async Task<IActionResult> Register(int id)
         {
+            ViewData["EventID"] = id;
             var @event = await _context.Attendees
                 .Include(a => a.Event)
-                .ThenInclude(a => a.EventType)
                 .FirstOrDefaultAsync(a => a.EventID == id);
 
             return View(@event);
