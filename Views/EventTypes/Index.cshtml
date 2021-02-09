@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EventsPlus.Models.EventType>
+﻿@model PaginatedList<EventsPlus.Models.EventType>
 
 @{
     ViewData["Title"] = "Index";
@@ -10,15 +10,24 @@
     <a asp-action="Create">Create New</a>
 </p>
 <p>Hello there! Can't see the whole table? Try scrolling the table side-to-side!</p>
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Search By Type: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="search-btn" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
 <div class="table-container">
     <table class="table table-borderless table-striped">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.EventTypeID)
+                    Event Type ID
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Type)
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["TypeSort"]">Type</a>
                 </th>
             </tr>
         </thead>
@@ -42,3 +51,23 @@
         </tbody>
     </table>
 </div>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>

@@ -20,9 +20,41 @@ namespace EventsPlus.Controllers
         }
 
         // GET: EventTypes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString, string currentFilter, int? pageNumber)
         {
-            return View(await _context.EventTypes.ToListAsync());
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["TypeSort"] = String.IsNullOrEmpty(sortOrder) ? "type_asc" : "";
+            ViewData["CurrentFilter"] = searchString;
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            var types = from e in _context.EventTypes
+                         select e;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                types = types.Where(s => s.Type.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "type_asc":
+                    types = types.OrderBy(s => s.Type);
+                    break;
+                default:
+                    types = types.OrderBy(s => s.EventTypeID);
+                    break;
+            }
+
+            int pageSize = 10;
+            return View(await PaginatedList<EventType>.CreateAsync(types.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: EventTypes/Details/5

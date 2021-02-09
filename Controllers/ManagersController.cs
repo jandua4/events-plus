@@ -20,9 +20,41 @@ namespace EventsPlus.Controllers
         }
 
         // GET: Managers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString, string currentFilter, int? pageNumber)
         {
-            return View(await _context.Managers.ToListAsync());
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["NameSort"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["CurrentFilter"] = searchString;
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            var managers = from e in _context.Managers
+                         select e;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                managers = managers.Where(s => s.Name.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    managers = managers.OrderByDescending(s => s.Name);
+                    break;
+                default:
+                    managers = managers.OrderBy(s => s.Name);
+                    break;
+            }
+
+            int pageSize = 10;
+            return View(await PaginatedList<Manager>.CreateAsync(managers.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: Managers/Details/5

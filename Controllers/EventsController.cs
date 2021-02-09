@@ -21,12 +21,60 @@ namespace EventsPlus.Controllers
         }
 
         // GET: Events
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString, string currentFilter, int? pageNumber)
         {
-            var eventsPlusContext = _context.Events
+            // Sort Parameters
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["NameSort"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["DateSort"] = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewData["TypeSort"] = sortOrder == "Type" ? "type_desc" : "Type";
+            // Search box filter
+            ViewData["CurrentFilter"] = searchString;
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+                var events = from e in _context.Events
                 .Include(a => a.EventType)
-                .Include(a => a.Manager);
-            return View(await eventsPlusContext.ToListAsync());
+                .Include(a => a.Manager)
+                         select e;
+
+            // Search function
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                events = events.Where(s => s.Name.Contains(searchString));
+            }
+
+            // Switch case for sorting results
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    events = events.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    events = events.OrderBy(s => s.StartTime);
+                    break;
+                case "date_desc":
+                    events = events.OrderByDescending(s => s.StartTime);
+                    break;
+                case "Type":
+                    events = events.OrderBy(s => s.EventType.Type);
+                    break;
+                case "type_desc":
+                    events = events.OrderByDescending(s => s.EventType.Type);
+                    break;
+                default:
+                    events = events.OrderBy(s => s.EventID);
+                    break;
+            }
+            // Number of records per page before paginating
+            int pageSize = 10;
+            return View(await PaginatedList<Event>.CreateAsync(events.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: Events/Details/5
@@ -179,19 +227,30 @@ namespace EventsPlus.Controllers
             return _context.Events.Any(e => e.EventID == id);
         }
 
+        // Events Schedule
+        // And Events Registration for Attendees
         // Method for returning events in order of StartTime - should show up in ascending order
-        public async Task<IActionResult> Schedule()
+        public async Task<IActionResult> Schedule(string searchString)
         {
+            // Search box filter
+            ViewData["CurrentFilter"] = searchString;
+
             // Select event from each item in Events
             var events = from e in _context.Events
                          .Include(a => a.EventType)
                          select e;
+
+            // Search function
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                events = events.Where(s => s.Name.Contains(searchString));
+            }
+
+            // Order by date - turns events into a schedules order
             events = events.OrderBy(e => e.StartTime);
 
             return View(await events.AsNoTracking().ToListAsync());
         }
-
-
 
         // For Attendees to register
         public async Task<IActionResult> Register(int id)
@@ -226,8 +285,5 @@ namespace EventsPlus.Controllers
             }
             return View(attendee);
         }
-
-
-
     }
 }

@@ -20,10 +20,42 @@ namespace EventsPlus.Controllers
         }
 
         // GET: Attendees
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString, string currentFilter, int? pageNumber)
         {
-            var eventsPlusContext = _context.Attendees.Include(a => a.Event);
-            return View(await eventsPlusContext.ToListAsync());
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["NameSort"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["CurrentFilter"] = searchString;
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            var attendees = from a in _context.Attendees
+                .Include(a => a.Event)
+                    select a;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                attendees = attendees.Where(s => s.Name.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    attendees = attendees.OrderByDescending(s => s.Name);
+                    break;
+                default:
+                    attendees = attendees.OrderBy(s => s.EventID);
+                    break;
+            }
+
+            int pageSize = 10;
+            return View(await PaginatedList<Attendee>.CreateAsync(attendees.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: Attendees/Details/5
