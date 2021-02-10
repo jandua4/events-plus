@@ -29,6 +29,7 @@ namespace EventsPlus.Controllers
             // Search box filter
             ViewData["CurrentFilter"] = searchString;
 
+            // Page number is 1 unless there's a search string
             if (searchString != null)
             {
                 pageNumber = 1;
@@ -37,6 +38,8 @@ namespace EventsPlus.Controllers
             {
                 searchString = currentFilter;
             }
+
+            // Include related entities
             var events = from e in _context.Events
             .Include(a => a.EventType)
             .Include(a => a.Manager)
@@ -72,6 +75,8 @@ namespace EventsPlus.Controllers
             }
             // Number of records per page before paginating
             int pageSize = 10;
+
+            // Return view with parameters
             return View(await PaginatedList<Event>.CreateAsync(events.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
@@ -89,6 +94,8 @@ namespace EventsPlus.Controllers
                 .Include(a => a.Manager)
                 .Include(a => a.Attendees)
                 .FirstOrDefaultAsync(m => m.EventID == id);
+
+            // If event doesn't exist, return 404
             if (@event == null)
             {
                 return NotFound();
@@ -115,6 +122,7 @@ namespace EventsPlus.Controllers
         {
             try
             {
+                // Check mode lstate is valid
                 if (ModelState.IsValid)
                 {
                     _context.Add(@event);
@@ -123,6 +131,7 @@ namespace EventsPlus.Controllers
                 }
 
             }
+            // Catch errors
             catch (DbUpdateException)
             {
                 ModelState.AddModelError("", "Unable to save changes. " +
@@ -130,6 +139,7 @@ namespace EventsPlus.Controllers
                     "see your system administrator.");
             }
 
+            // Dropdown list
             ViewData["EventTypeID"] = new SelectList(_context.EventTypes, "EventTypeID", "Type", @event.EventTypeID);
             ViewData["ManagerID"] = new SelectList(_context.Managers, "ManagerID", "Name", @event.ManagerID);
             return View(@event);
@@ -228,10 +238,19 @@ namespace EventsPlus.Controllers
         // Events Schedule
         // And Events Registration for Attendees
         // Method for returning events in order of StartTime - should show up in ascending order
-        public async Task<IActionResult> Schedule(string searchString)
+        public async Task<IActionResult> Schedule(string searchString, string currentFilter, int? pageNumber)
         {
             // Search box filter
             ViewData["CurrentFilter"] = searchString;
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
 
             // Select event from each item in Events
             var events = from e in _context.Events
@@ -247,7 +266,8 @@ namespace EventsPlus.Controllers
             // Order by date - turns events into a schedules order
             events = events.OrderBy(e => e.StartTime);
 
-            return View(await events.AsNoTracking().ToListAsync());
+            int pageSize = 10;
+            return View(await PaginatedList<Event>.CreateAsync(events.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // For Attendees to register
@@ -268,6 +288,7 @@ namespace EventsPlus.Controllers
         {
             try
             {
+                // Add attendee details if model state is valid
                 if (ModelState.IsValid)
                 {
                     _context.Add(attendee);
