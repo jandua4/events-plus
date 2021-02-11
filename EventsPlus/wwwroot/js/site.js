@@ -18,4 +18,9 @@ $(document).ready(function () {
         $(this).next().toggle();
     });
 
+    // Alert the user they have registered for the event
+    $('#registerBtn').click(function () {
+        window.alert("You have registered for this event!");
+    });
+
 });
