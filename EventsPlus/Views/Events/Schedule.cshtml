@@ -16,60 +16,34 @@
         </p>
     </div>
 </form>
-<div class="table-container">
-    <table class="table table-borderless table-striped">
-        <thead>
-            <tr>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Start Time
-                </th>
-                <th>
-                    Location
-                </th>
-                <th>
-                    Duration
-                </th>
-                <th>
-                    Description
-                </th>
-                <th>
-                    Event Type
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StartTime)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Location)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Duration)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EventType.Type)
-                    </td>
-                    <td>
-                        <a asp-action="Register" asp-controller="Events" asp-route-id="@item.EventID">Register</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+
+<div class="row justify-content-md-center">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 text-center card m-1">
+            <p>
+                <strong>@Html.DisplayFor(modelItem => item.Name)</strong>
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.Location)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.Description)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => item.EventType.Type)
+            </p>
+            <p>
+                <a asp-action="Register" asp-controller="Events" asp-route-id="@item.EventID">Register</a>
+            </p>
+        </div>
+    }
 </div>
 
 @{
