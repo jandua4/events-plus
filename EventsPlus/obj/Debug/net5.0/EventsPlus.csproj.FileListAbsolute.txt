@@ -24,6 +24,7 @@ C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Ap
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Sqlite.dll
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
@@ -161,6 +162,8 @@ C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Ap
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\Razor\Views\Events\Details.cshtml.g.cs
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\Razor\Views\Events\Edit.cshtml.g.cs
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\Razor\Views\Events\Index.cshtml.g.cs
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\Razor\Views\Events\Register.cshtml.g.cs
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\Razor\Views\Events\Schedule.cshtml.g.cs
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\Razor\Views\EventTypes\Create.cshtml.g.cs
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\Razor\Views\EventTypes\Delete.cshtml.g.cs
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\Razor\Views\EventTypes\Details.cshtml.g.cs
@@ -186,6 +189,12 @@ C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Ap
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\ref\EventsPlus.dll
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\EventsPlus.pdb
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\EventsPlus.genruntimeconfig.cache
-C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\Razor\Views\Events\Schedule.cshtml.g.cs
-C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\obj\Debug\net5.0\Razor\Views\Events\Register.cshtml.g.cs
-C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\EntityFramework.SqlServer.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\EntityFramework.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\System.CodeDom.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

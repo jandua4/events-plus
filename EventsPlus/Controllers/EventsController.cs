@@ -83,6 +83,7 @@ namespace EventsPlus.Controllers
         // GET: Events/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            // Return 404 if ID is null
             if (id == null)
             {
                 return NotFound();
@@ -101,6 +102,7 @@ namespace EventsPlus.Controllers
                 return NotFound();
             }
 
+            // Returns @event to user => see var @event above
             return View(@event);
         }
 
@@ -122,7 +124,7 @@ namespace EventsPlus.Controllers
         {
             try
             {
-                // Check mode lstate is valid
+                // Check model state is valid
                 if (ModelState.IsValid)
                 {
                     _context.Add(@event);
@@ -139,7 +141,7 @@ namespace EventsPlus.Controllers
                     "see your system administrator.");
             }
 
-            // Dropdown list
+            // Dropdown list of Event Types and Managers
             ViewData["EventTypeID"] = new SelectList(_context.EventTypes, "EventTypeID", "Type", @event.EventTypeID);
             ViewData["ManagerID"] = new SelectList(_context.Managers, "ManagerID", "Name", @event.ManagerID);
             return View(@event);
@@ -175,6 +177,8 @@ namespace EventsPlus.Controllers
                 return NotFound();
             }
 
+            // If the model state is valid, attempt to save the changes in the database.
+            // Else, throw an error
             if (ModelState.IsValid)
             {
                 try
@@ -193,6 +197,7 @@ namespace EventsPlus.Controllers
                         throw;
                     }
                 }
+                // Redirect user to Index
                 return RedirectToAction(nameof(Index));
             }
             ViewData["EventTypeID"] = new SelectList(_context.EventTypes, "EventTypeID", "Type", @event.EventTypeID);
@@ -224,6 +229,7 @@ namespace EventsPlus.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            // Find event by ID, delete from database context
             var @event = await _context.Events.FindAsync(id);
             _context.Events.Remove(@event);
             await _context.SaveChangesAsync();
@@ -266,6 +272,7 @@ namespace EventsPlus.Controllers
             // Order by date - turns events into a schedules order
             events = events.OrderBy(e => e.StartTime);
 
+            // Max 10 events per page
             int pageSize = 10;
             return View(await PaginatedList<Event>.CreateAsync(events.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
