@@ -1,9 +1,10 @@
 ﻿using EventsPlus.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace EventsPlus.Data
 {
-    public class EventsPlusContext : DbContext
+    public class EventsPlusContext : IdentityDbContext
     {
         public EventsPlusContext(DbContextOptions<EventsPlusContext> options) : base(options)
         {
@@ -74,6 +75,8 @@ namespace EventsPlus.Data
                 .HasMany(e => e.Events)
                 .WithOne(m => m.Manager)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
