@@ -34,47 +34,31 @@ namespace EventsPlus.Data
                 .HasOne(m => m.Manager)
                 .WithMany(e => e.Events)
                 .HasForeignKey(m => m.ManagerID)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.SetNull);
             //Set Event Type relationship and constraint
             modelBuilder.Entity<Event>()
                 .HasOne(t => t.EventType)
                 .WithMany(e => e.Events)
                 .HasForeignKey(t => t.EventTypeID)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.SetNull);
 
 
             // Event Type
             modelBuilder.Entity<EventType>()
                 .ToTable("EventTypes")
                 .HasKey(t => t.EventTypeID);
-            // Set constraint
-            modelBuilder.Entity<EventType>()
-                .HasMany(t => t.Events)
-                .WithOne(t => t.EventType)
-                .OnDelete(DeleteBehavior.SetNull);
 
 
             // Attendees
             modelBuilder.Entity<Attendee>()
                 .ToTable("Attendees")
                 .HasKey(a => a.AttendeeID);
-            // Set up relationship and constraints
-            modelBuilder.Entity<Attendee>()
-                .HasOne(e => e.Event)
-                .WithMany(a => a.Attendees)
-                .HasForeignKey(e => e.EventID)
-                .OnDelete(DeleteBehavior.NoAction);
 
 
             // Managers
             modelBuilder.Entity<Manager>()
                 .ToTable("Managers")
                 .HasKey(m => m.ManagerID);
-            // Set up constraints
-            modelBuilder.Entity<Manager>()
-                .HasMany(e => e.Events)
-                .WithOne(m => m.Manager)
-                .OnDelete(DeleteBehavior.Cascade);
 
             base.OnModelCreating(modelBuilder);
         }

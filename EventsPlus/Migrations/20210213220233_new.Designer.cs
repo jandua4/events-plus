@@ -4,14 +4,16 @@ using EventsPlus.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EventsPlus.Migrations
 {
     [DbContext(typeof(EventsPlusContext))]
-    partial class EventsPlusContextModelSnapshot : ModelSnapshot
+    [Migration("20210213220233_new")]
+    partial class @new
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -341,7 +343,7 @@ namespace EventsPlus.Migrations
                     b.HasOne("EventsPlus.Models.Event", "Event")
                         .WithMany("Attendees")
                         .HasForeignKey("EventID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Event");
@@ -357,7 +359,7 @@ namespace EventsPlus.Migrations
                     b.HasOne("EventsPlus.Models.Manager", "Manager")
                         .WithMany("Events")
                         .HasForeignKey("ManagerID")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("EventType");
 
