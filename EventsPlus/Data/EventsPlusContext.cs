@@ -26,14 +26,14 @@ namespace EventsPlus.Data
             modelBuilder.Entity<Event>()
                 .HasMany(a => a.Attendees)
                 .WithOne(e => e.Event)
-                .HasForeignKey(a => a.AttendeeID)
+                .HasForeignKey(a => a.EventID)
                 .OnDelete(DeleteBehavior.Cascade);
             //Set Manager relationship and constraint
             modelBuilder.Entity<Event>()
                 .HasOne(m => m.Manager)
                 .WithMany(e => e.Events)
                 .HasForeignKey(m => m.ManagerID)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
             //Set Event Type relationship and constraint
             modelBuilder.Entity<Event>()
                 .HasOne(t => t.EventType)
