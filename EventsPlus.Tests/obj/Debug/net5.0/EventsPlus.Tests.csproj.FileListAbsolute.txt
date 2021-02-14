@@ -233,3 +233,12 @@ C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Ap
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus.Tests\obj\Debug\net5.0\ref\EventsPlus.Tests.dll
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus.Tests\obj\Debug\net5.0\EventsPlus.Tests.pdb
 C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus.Tests\obj\Debug\net5.0\EventsPlus.Tests.genruntimeconfig.cache
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus.Tests\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus.Tests\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus.Tests\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus.Tests\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus.Tests\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus.Tests\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus.Tests\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus.Tests\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus.Tests\bin\Debug\net5.0\EventsPlus.StaticWebAssets.xml

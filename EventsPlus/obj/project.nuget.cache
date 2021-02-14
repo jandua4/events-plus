@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/tN4ETACGKwEXRe9YROybQ/okMJ1wH9DH+Gjreu9i2H3sxQakHuoHs7rdLBRq1/6uRuO3Bd+/sgRfIK2tKqZhg==",
+  "dgSpecHash": "BGYzG9HqR7E4pSdCs7F8DDHcGg/isiT6AjMnvvEcrhepJjw9l/K5jQ3wz+N4Duj0j5yTu1Zd2qp6oGpQDV2uTQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Aman\\Desktop\\Folders\\Productivity and Work\\University\\Database & Web Applications\\workspace\\EventsPlus\\EventsPlus.csproj",
   "expectedPackageFiles": [
@@ -29,13 +29,13 @@
     "C:\\Users\\Aman\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.3\\microsoft.entityframeworkcore.5.0.3.nupkg.sha512",
     "C:\\Users\\Aman\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.3\\microsoft.entityframeworkcore.abstractions.5.0.3.nupkg.sha512",
     "C:\\Users\\Aman\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.3\\microsoft.entityframeworkcore.analyzers.5.0.3.nupkg.sha512",
-    "C:\\Users\\Aman\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.3\\microsoft.entityframeworkcore.design.5.0.3.nupkg.sha512",
+    "C:\\Users\\Aman\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.2\\microsoft.entityframeworkcore.design.5.0.2.nupkg.sha512",
     "C:\\Users\\Aman\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\5.0.3\\microsoft.entityframeworkcore.inmemory.5.0.3.nupkg.sha512",
     "C:\\Users\\Aman\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.3\\microsoft.entityframeworkcore.relational.5.0.3.nupkg.sha512",
     "C:\\Users\\Aman\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\5.0.3\\microsoft.entityframeworkcore.sqlite.5.0.3.nupkg.sha512",
     "C:\\Users\\Aman\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\5.0.3\\microsoft.entityframeworkcore.sqlite.core.5.0.3.nupkg.sha512",
     "C:\\Users\\Aman\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.2\\microsoft.entityframeworkcore.sqlserver.5.0.2.nupkg.sha512",
-    "C:\\Users\\Aman\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.3\\microsoft.entityframeworkcore.tools.5.0.3.nupkg.sha512",
+    "C:\\Users\\Aman\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.2\\microsoft.entityframeworkcore.tools.5.0.2.nupkg.sha512",
     "C:\\Users\\Aman\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\Aman\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
     "C:\\Users\\Aman\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",

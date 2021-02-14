@@ -26,8 +26,15 @@ using EventsPlus.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Aman\Desktop\Folders\Productivity and Work\University\Database & Web Applications\workspace\EventsPlus\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3a80bd3eebf2fc490a8315941c7a280f0b071b29", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e60b99fa1b683a9f641e1377eb06f2cdddc4b732", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7c4380549e1ca0a4ccc64d17ca0d343805fb6bf1", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -69,7 +76,7 @@ using EventsPlus.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<div class=\"text-center main-heading\">\r\n    <h1>Events Plus Ltd - Events Management System</h1>\r\n</div>\r\n<div class=\"row home-select\">\r\n    <div class=\"col-md-3\">\r\n        <p>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a80bd3eebf2fc490a8315941c7a280f0b071b295500", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a80bd3eebf2fc490a8315941c7a280f0b071b295756", async() => {
                 WriteLiteral("Manage Events");
             }
             );
@@ -89,7 +96,7 @@ using EventsPlus.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</p>\r\n    </div>\r\n    <div class=\"col-md-3\">\r\n        <p>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a80bd3eebf2fc490a8315941c7a280f0b071b297129", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a80bd3eebf2fc490a8315941c7a280f0b071b297385", async() => {
                 WriteLiteral("Manage Organisers");
             }
             );
@@ -109,7 +116,7 @@ using EventsPlus.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</p>\r\n    </div>\r\n    <div class=\"col-md-3\">\r\n        <p>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a80bd3eebf2fc490a8315941c7a280f0b071b298762", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a80bd3eebf2fc490a8315941c7a280f0b071b299018", async() => {
                 WriteLiteral("Manage Attendees");
             }
             );
@@ -129,7 +136,7 @@ using EventsPlus.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</p>\r\n    </div>\r\n    <div class=\"col-md-3 last\">\r\n        <p>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a80bd3eebf2fc490a8315941c7a280f0b071b2910399", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a80bd3eebf2fc490a8315941c7a280f0b071b2910655", async() => {
                 WriteLiteral("View Schedule");
             }
             );

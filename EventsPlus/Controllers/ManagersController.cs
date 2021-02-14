@@ -1,5 +1,6 @@
 ﻿using EventsPlus.Data;
 using EventsPlus.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace EventsPlus.Controllers
 {
+    [Authorize(Policy = "readpolicy")]
     public class ManagersController : Controller
     {
         private readonly EventsPlusContext _context;

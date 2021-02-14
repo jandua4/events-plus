@@ -1,5 +1,6 @@
 ﻿using EventsPlus.Data;
 using EventsPlus.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace EventsPlus.Controllers
 {
+    [Authorize(Policy = "readpolicy")]
     public class EventsController : Controller
     {
         private readonly EventsPlusContext _context;
@@ -244,6 +246,8 @@ namespace EventsPlus.Controllers
         // Events Schedule
         // And Events Registration for Attendees
         // Method for returning events in order of StartTime - should show up in ascending order
+        // AllowAnonymous allows any user to access that method without needing to be a part of the Authorise policy
+        [AllowAnonymous]
         public async Task<IActionResult> Schedule(string searchString, string currentFilter, int? pageNumber)
         {
             // Search box filter
@@ -278,6 +282,7 @@ namespace EventsPlus.Controllers
         }
 
         // For Attendees to register
+        [AllowAnonymous]
         public async Task<IActionResult> Register(int id)
         {
             ViewData["EventID"] = id;
@@ -291,6 +296,7 @@ namespace EventsPlus.Controllers
         // Registration POST
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public async Task<IActionResult> Register([Bind("AttendeeID,Name,Phone,Email,EventID")] Attendee attendee)
         {
             try
